@@ -1,6 +1,6 @@
 {
   "name": "onlyonce",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A NodeJS wrapper that allows NodeJS to easily interact with the public Only Once API",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.rubensrv.nl:OnlyOnce/node-onlyonce.git"
+    "url": "git@github.com:only-once/node-onlyonce.git"
   },
   "author": "Ruben Rutten",
   "license": "ISC"

@@ -1,8 +1,8 @@
-var http = require("http");
+var https = require("https");
 
 function OnlyOnceClient (options) {
-	this.protocol = options.secure ? "https:" : "http:";
-	this.baseUrl = "apiteststand.onlyonce.com";
+	this.protocol = "https:";
+	this.baseUrl = "api.onlyonce.com";
 	this.version = options.version || "v1";
 
 	this.key = options.key;
@@ -46,7 +46,7 @@ OnlyOnceClient.prototype.raw = function (endpoint, method, data, callback) {
 		});
 	}
 
-	var req = http.request({
+	var req = https.request({
 		protocol: this.protocol,
 		host: this.baseUrl,
 		method: method,

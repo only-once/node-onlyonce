@@ -1,6 +1,6 @@
 {
   "name": "onlyonce",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A NodeJS wrapper that allows NodeJS to easily interact with the public Only Once API",
   "main": "index.js",
   "scripts": {

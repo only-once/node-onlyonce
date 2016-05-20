@@ -61,10 +61,20 @@ OnlyOnceClient.prototype.raw = function (endpoint, method, data, callback) {
 		});
 		res.on("end", function() {
 			var parsedData = {};
-			try {
-				parsedData = JSON.parse(receivedData);
-			}catch(err) {
+			if(endpoint != "/token") {
+				try {
+					parsedData = JSON.parse(receivedData);
+				} catch (err) {
+					console.error("[HTTP request]", err);
+					console.log(res.headers);
+					parsedData = {};
+				}
+			}else{
 				parsedData = {};
+			}
+
+			if(parsedData == undefined) {
+				console.error("Parsed data is undefined");
 			}
 
 			return callback(null, parsedData, res);
@@ -131,6 +141,10 @@ OnlyOnceClient.prototype.getCards = function (callback) {
 	this.raw("/cards", "GET", function (err, data) {
 		if(err) {
 			return callback(err);
+		}
+		
+		if(!data.data) {
+			console.error("[getCards]", data);
 		}
 
 		return callback(null, data.data);
